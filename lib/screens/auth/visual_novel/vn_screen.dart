@@ -35,38 +35,41 @@ class _VNScreenState extends State<VNScreen> {
     }
   }
 
-  Color _getBackgroundColor(String background) {
+  String _getBackgroundImage(String background) {
+    const baseUrl =
+        'https://ncrlhdsupoonggxbtupz.supabase.co/storage/v1/object/public/vn-assets/backgrounds';
+
     switch (background) {
       case 'room_night':
-        return const Color(0xFF1a1a2e);
+        return '$baseUrl/room_night.jpg';
       case 'room_morning':
-        return const Color(0xFF87CEEB);
+        return '$baseUrl/room_morning.jpg';
       case 'game_screen':
-        return const Color(0xFF0f0f1e);
+        return '$baseUrl/game_screen.jpg';
       case 'computer_screen':
-        return const Color(0xFF002b36);
+        return '$baseUrl/computer_screen.jpg';
       case 'static_screen':
-        return const Color(0xFF1a1a1a);
+        return '$baseUrl/static_screen.jpg';
       case 'black_screen':
-        return Colors.black;
+        return '$baseUrl/black_screen.jpg';
       default:
-        return const Color(0xFF1a1a2e);
+        return '$baseUrl/room_night.jpg';
     }
   }
 
   Widget _buildBackground() {
-    final color = _getBackgroundColor(currentScene.background);
-    
+    final imageUrl = _getBackgroundImage(currentScene.background);
+
     return AnimatedContainer(
-      duration: const Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 800),
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            color,
-            color.withValues(alpha: 0.7),
-          ],
+        image: DecorationImage(
+          image: NetworkImage(imageUrl),
+          fit: BoxFit.cover,
+          colorFilter: ColorFilter.mode(
+            Colors.black.withValues(alpha: 0.4),
+            BlendMode.darken,
+          ),
         ),
       ),
     );
@@ -182,7 +185,7 @@ class _VNScreenState extends State<VNScreen> {
           children: [
             // Background
             _buildBackground(),
-            
+
             // Center content
             if (currentScene.id == 'end')
               const Center(
@@ -195,13 +198,10 @@ class _VNScreenState extends State<VNScreen> {
                   ),
                 ),
               ),
-            
+
             // Dialog box or Choices
-            if (currentScene.hasChoices)
-              _buildChoices()
-            else
-              _buildDialogBox(),
-            
+            if (currentScene.hasChoices) _buildChoices() else _buildDialogBox(),
+
             // Back button
             Positioned(
               top: 40,
