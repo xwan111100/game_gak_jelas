@@ -97,6 +97,25 @@ class _VNScreenState extends State<VNScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
+            // Character Sprite
+            if (currentScene.characterSprite != null)
+              Positioned(
+                bottom: 0,
+                right: 50,
+                child: AnimatedOpacity(
+                  duration: const Duration(milliseconds: 500),
+                  opacity: 1.0,
+                  child: Image.network(
+                    currentScene.characterSprite!,
+                    height: MediaQuery.of(context).size.height * 0.7,
+                    fit: BoxFit.contain,
+                    errorBuilder: (context, error, stack) {
+                      return const SizedBox.shrink();
+                    },
+                  ),
+                ),
+              ),
+
             if (currentScene.characterName != null) ...[
               Text(
                 currentScene.characterName!,
