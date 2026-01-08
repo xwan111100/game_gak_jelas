@@ -36,22 +36,24 @@ class _VNScreenState extends State<VNScreen> {
   }
 
   String _getBackgroundImage(String background) {
-    // TEMPORARY: Background Supabase
+    const baseUrl =
+        'https://ncrlhdsupoonggxbtupz.supabase.co/storage/v1/object/public/vn-assets/backgrounds';
+
     switch (background) {
       case 'room_night':
-        return 'https://ncrlhdsupoonggxbtupz.supabase.co/storage/v1/object/public/vn-assets/backgrounds/room_night.png';
+        return '$baseUrl/scene_room_night.jpg';
       case 'room_morning':
-        return 'https://ncrlhdsupoonggxbtupz.supabase.co/storage/v1/object/public/vn-assets/backgrounds/room_morning.png';
+        return '$baseUrl/scene_room_morning.jpg';
       case 'game_screen':
-        return 'https://ncrlhdsupoonggxbtupz.supabase.co/storage/v1/object/public/vn-assets/backgrounds/game_screen.png';
+        return '$baseUrl/scene_game_screen.jpg';
       case 'computer_screen':
-        return 'https://ncrlhdsupoonggxbtupz.supabase.co/storage/v1/object/public/vn-assets/backgrounds/computer_screen.png';
+        return '$baseUrl/scene_computer_screen.jpg';
       case 'static_screen':
-        return 'https://ncrlhdsupoonggxbtupz.supabase.co/storage/v1/object/public/vn-assets/backgrounds/static_screen.png';
+        return '$baseUrl/scene_static_screen.jpg';
       case 'black_screen':
-        return 'https://ncrlhdsupoonggxbtupz.supabase.co/storage/v1/object/public/vn-assets/backgrounds/black_screen.png';
+        return '$baseUrl/scene_black_screen.jpg';
       default:
-        return 'https://ncrlhdsupoonggxbtupz.supabase.co/storage/v1/object/public/vn-assets/backgrounds/room_night.png';
+        return '$baseUrl/scene_room_night.jpg';
     }
   }
 
