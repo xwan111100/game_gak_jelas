@@ -1,110 +1,42 @@
-# 🎮 GameHub App
+# GameVerse - Your Gaming Universe
 
-GameHub adalah aplikasi mobile sederhana yang dibangun menggunakan **Flutter** dan **Supabase**. Aplikasi ini dirancang sebagai proyek portofolio untuk menampilkan kemampuan pengembangan aplikasi mobile, autentikasi pengguna, dan integrasi backend modern.
+Platform data game interaktif dengan quiz dan visual novel.
 
----
+## Features
 
-## 🚀 Fitur Utama
+### 🎮 Games Database
+- Browse 5+ popular games
+- Search & filter by genre
+- Rating & review system
 
-* 🔐 **Autentikasi Pengguna** (Register & Login)
-* 📧 **Email Confirmation** menggunakan Supabase Auth
-* 🏠 **Halaman Home setelah Login**
-* 🎨 **UI Modern** dengan Material Design (Dark Theme)
-* ☁️ **Backend as a Service** menggunakan Supabase
+### 🏆 Guess the Game Challenge
+- Interactive quiz game
+- 5 questions per session
+- Score tracking
+- Multiple difficulty levels
 
----
+### 📖 Visual Novel: The Lost Cartridge
+- Interactive mystery story
+- Branching narrative
+- Multiple endings
+- AI-generated artwork
 
-## 🛠️ Teknologi yang Digunakan
+## Tech Stack
 
-* **Flutter** (Dart)
-* **Supabase** (Authentication & Backend)
-* **Material UI**
-* **Git & GitHub** (Version Control)
+- **Frontend:** Flutter Web
+- **Backend:** Supabase (Auth + Database)
+- **Storage:** Supabase Storage
+- **AI Art:** Bing Image Creator
 
----
-
-## 📂 Struktur Folder
-
-```
-lib/
-├── main.dart
-├── models/
-├── screens/
-│   ├── auth/
-│   │   ├── login_screen.dart
-│   │   ├── register_screen.dart
-│   └── home/
-│       └── home_screen.dart
-├── services/
-│   └── auth_service.dart
-├── widgets/
-```
-
----
-
-## ⚙️ Cara Menjalankan Project
-
-1. Clone repository:
-
-```bash
-git clone https://github.com/username/gamehub-app.git
-```
-
-2. Masuk ke folder project:
-
-```bash
-cd gamehub-app
-```
-
-3. Install dependencies:
-
+## How to Run
 ```bash
 flutter pub get
+flutter run -d chrome
 ```
 
-4. Jalankan aplikasi:
+## Credits
 
-```bash
-flutter run
+- Developed by [xwan]
+- AI Artwork by Microsoft Bing Image Creator
+- Powered by Supabase
 ```
-
----
-
-## 🔑 Konfigurasi Supabase
-
-Pastikan Anda telah mengganti konfigurasi Supabase di `main.dart`:
-
-```dart
-await Supabase.initialize(
-  url: 'SUPABASE_URL',
-  anonKey: 'SUPABASE_ANON_KEY',
-);
-```
-
-Dan aktifkan:
-
-* Email Auth
-* Email Confirmation
-
----
-
----
-
-## 🎯 Tujuan Project
-
-* Sebagai **portofolio GitHub** untuk melamar kerja
-* Melatih integrasi **Flutter + Supabase**
-* Memahami alur autentikasi aplikasi mobile
-
----
-
-## 👨‍💻 Developer
-
-**X Wan**
-Mahasiswa / Junior Mobile Developer
-
----
-
-## 📄 Lisensi
-
-Project ini bersifat **open-source** dan digunakan untuk pembelajaran.
